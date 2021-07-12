@@ -1,22 +1,20 @@
-import React, { useState } from 'react'
-import TinderCard from "react-tinder-card"
-import "../css/MlemCard.css"
+import React, { useState, useEffect } from 'react';
+import TinderCard from "react-tinder-card";
+import database from "../firebase";
+import "../css/MlemCard.css";
 
 function MlemCards() {
-    const [profile, setProfile] = useState([
-        {
-            name: "Apollo",
-            url: "https://pomskynederland.com/en/wp-content/uploads/sites/3/2021/03/De-Pomsky-e1614801584830-1.jpeg"
-        },
-        {
-            name: "Charlie",
-            url: "https://mydogsinfo.com/wp-content/uploads/2020/05/cockapoo-e1574194055471.jpg"
-        },
-        {
-            name: "Sammy",
-            url: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/11234019/Bulldog-standing-in-the-grass.jpg"
-        }
-    ]);
+    const [profile, setProfile] = useState([]);
+
+    useEffect(() => {
+
+        database
+            .collection('pets')
+            .onSnapshot(snapshot => (
+                setProfile(snapshot.docs.map(doc => doc.data()))
+            ))
+    }, [])
+
 
     return (
         <div className="mlem__cards">
