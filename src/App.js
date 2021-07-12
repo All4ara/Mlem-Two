@@ -4,18 +4,18 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import MlemCards from "./components/MlemCards";
-// import SwipeButtons from "./components/SwipeButtons";
+import SwipeButtons from "./components/SwipeButtons";
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Header />
+
 
       <Router>
         <Switch>
           <Route path="/chat">
-
+            <Header backButton="/" />
             {/* Chats Screen */}
 
             {/* Individual Chats Screen */}
@@ -23,12 +23,12 @@ function App() {
           </Route>
 
           <Route path="/">
-
+            <Header />
 
             <MlemCards />
 
 
-            {/* <SwipeButtons /> */}
+            <SwipeButtons />
 
           </Route>
         </Switch>

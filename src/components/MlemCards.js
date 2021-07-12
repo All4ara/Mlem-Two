@@ -8,12 +8,18 @@ function MlemCards() {
 
     useEffect(() => {
 
-        database
+        // this is where the code runs...
+        const unsubscribe = database
             .collection('pets')
-            .onSnapshot(snapshot => (
+            .onSnapshot(snapshot =>
                 setProfile(snapshot.docs.map(doc => doc.data()))
-            ))
-    }, [])
+            );
+
+        return () => {
+            // this is the cleanup...
+            unsubscribe();
+        };
+    }, []);
 
 
     return (
