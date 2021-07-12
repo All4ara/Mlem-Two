@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import MlemCards from "./components/MlemCards";
 import SwipeButtons from "./components/SwipeButtons";
+import Chats from "./components/Chats";
 import './App.css';
 
 function App() {
@@ -16,10 +17,8 @@ function App() {
         <Switch>
           <Route path="/chat">
             <Header backButton="/" />
-            {/* Chats Screen */}
-
+            <Chats />
             {/* Individual Chats Screen */}
-
           </Route>
 
           <Route path="/">
