@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import MlemCards from "./components/MlemCards";
 import SwipeButtons from "./components/SwipeButtons";
 import Chats from "./components/Chats";
+import ChatScreen from "./components/ChatScreen";
 import './App.css';
 
 function App() {
@@ -15,10 +16,13 @@ function App() {
 
       <Router>
         <Switch>
+          <Route path="/chat/:person">
+            <Header backButton="/chat" />
+            <ChatScreen />
+          </Route>
           <Route path="/chat">
             <Header backButton="/" />
             <Chats />
-            {/* Individual Chats Screen */}
           </Route>
 
           <Route path="/">
