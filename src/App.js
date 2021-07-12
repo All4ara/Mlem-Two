@@ -1,23 +1,42 @@
-import logo from './logo.svg';
+import React from "react";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import Header from "./components/Header";
+// import MlemCards from "./components/MlemCards";
+// import SwipeButtons from "./components/SwipeButtons";
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      {/* Header */}
+      <Header />
+
+      <Router>
+        <Switch>
+
+          <Route path="/chat">
+
+            {/* Chats Screen */}
+
+            {/* Individual Chats Screen */}
+
+          </Route>
+
+          <Route path="/">
+
+            {/* MlemCards */}
+            {/* <MlemCards /> */}
+
+            {/* SwipeButtons */}
+            {/* <SwipeButtons /> */}
+
+          </Route>
+
+        </Switch>
+      </Router>
     </div>
   );
 }
